@@ -16,14 +16,19 @@ info.app.version: 1.0.0
 spring:
   profiles: dev
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/espringcontrollerdb
-    username: postgres
+    #driver-class-name: org.postgresql.Driver
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    #url: jdbc:sqlserver://localhost:5432/espringcontrollerdb
+    url: jdbc:sqlserver://localhost;databaseName=espringcontrollerdb
+    username: sa
     password: root
 message:   Hello from DEV Profile
 fromRoute: timer:restRoute?period=10s
 #toRoute:  log:?level=INFO&showBody=true
 toRoute:  http://localhost:8081/country
 dbNode: jdbc:dataSource
-selectNode: sql:select * from country where country_code = :#countryId?dataSource=#dataSource
+#selectNode: sql:select * from country where country_code = :#countryId?dataSource=#dataSource
+selectNode: sql:select * from country where CONVERT(varchar, country_code) = :#countryId?dataSource=#dataSource
+
+
 

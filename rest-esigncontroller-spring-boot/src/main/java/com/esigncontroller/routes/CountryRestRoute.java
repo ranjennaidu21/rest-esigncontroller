@@ -3,7 +3,6 @@ package com.esigncontroller.routes;
 import com.esigncontroller.domain.Country;
 import com.esigncontroller.processor.BuildSQLProcessor;
 import com.esigncontroller.processor.CountrySelectProcessor;
-import org.postgresql.util.PSQLException;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.sql.DataSource;
@@ -36,8 +35,8 @@ public class CountryRestRoute extends RouteBuilder{
     @Override
     public void configure() throws Exception {
     	
-        onException(PSQLException.class).log(LoggingLevel.ERROR,"PSQLException in the route ${body}")
-        .maximumRedeliveries(3).redeliveryDelay(3000).backOffMultiplier(2).retryAttemptedLogLevel(LoggingLevel.ERROR);
+/*        onException(PSQLException.class).log(LoggingLevel.ERROR,"PSQLException in the route ${body}")
+        .maximumRedeliveries(3).redeliveryDelay(3000).backOffMultiplier(2).retryAttemptedLogLevel(LoggingLevel.ERROR);*/
         
         
     	//This is post endpoint that will receive the route that we get as response from the country rest api

@@ -52,12 +52,18 @@
         </dependency>
 
 
-        <dependency>
+<!--         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>9.4.1212</version>
-        </dependency>
-
+        </dependency> -->
+        
+        <!-- MSSQL Server -->
+		<dependency>
+    		<groupId>com.microsoft.sqlserver</groupId>
+    		<artifactId>mssql-jdbc</artifactId>
+    		<version>7.0.0.jre8</version>
+    	</dependency>
 		<!--http-->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
